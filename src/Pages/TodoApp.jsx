@@ -64,8 +64,8 @@ const TodoApp = () => {
                    <tr>
                     <td>{index+1}</td>
                     <td>{elem}</td>
-                    <td><button onClick={()=>removeTask(index)}>Remove</button></td>
-                    <td><button onClick={()=>editTask()}>Edit Task</button></td>
+                    <td><button onClick={()=>removeTask(index)}>❌</button></td>
+                    <td><button onClick={()=>editTask()}>🫣</button></td>
                    </tr>
               </>   
             )
