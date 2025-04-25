@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 
 const TodoApp = () => {
     const [list,setList] = useState([])
@@ -15,6 +15,17 @@ const TodoApp = () => {
             alert("Please enter your task")
         }
     }
+    const removeTask =(index)=>{
+            console.log("Hellow",{index})
+            const listUpdate= list.filter((ele,ind)=>index!=ind)
+            setList(listUpdate)
+    }
+    const editTask = ()=>{
+
+    }
+    useEffect(()=>{
+      console.log("apka program chall raha hai")
+    },[])
   return (
     <div className='container'>
         <h1>Todo App</h1>
@@ -34,7 +45,7 @@ const TodoApp = () => {
                    <tr>
                     <td>{index+1}</td>
                     <td>{elem}</td>
-                    <td><button>Remove</button></td>
+                    <td><button onClick={()=>removeTask(index)}>Remove</button></td>
                     <td><button>Edit Task</button></td>
                    </tr>
               </>   
