@@ -1,23 +1,25 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Cart from './Cart'
 const ProductData = () => {
     const [storeData,setStoreData] = useState([])
-    let data = axios.get("https://fakestoreapiserver.reactbd.com/amazonproducts")
     
-    const getData =()=>{
-        data.then((res)=>console.log(res.data))
-        // console.log("hii friends")
-       }    
-       const showData =()=>{
-           console.log("hellow data")
-           data.then((res)=>setStoreData(res.data))
-           // setStoreData([...])
-    }
+    // const getData =()=>{
+        //     data.then((res)=>console.log(res.data))
+        //     console.log("hii friends")
+        //    }    
+        
+        //    const showData =()=>{
+            //        console.log("hellow data")
+            //        data.then((res)=>setStoreData(res.data))
+            //     }
+            let data = axios.get("https://fakestoreapiserver.reactbd.com/amazonproducts")
+            data.then((res)=>setStoreData(res.data))
+         
   return (
-    <div>
-                 <button onClick={getData}>Get Data</button>
-                 <button onClick={showData}>Show Data</button>
+    <div className='product-wrapper'>
+                 {/* <button onClick={getData}>Get Data</button> */}
+                 {/* <button onClick={showData}>Show Data</button> */}
                  {storeData.map((elem,inde)=>{
                     return(
                         <div key={inde}>

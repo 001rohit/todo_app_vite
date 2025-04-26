@@ -53,14 +53,15 @@ const TodoApp = () => {
         e.preventDefault()
     }
   return (
-    <div className='container'>
+    <div className='todo-container'>
+        <div className="todoTask-Box">
         <h1>Todo App </h1>
-          <form  onSubmit={saveToDoList}>
+        <form  onSubmit={saveToDoList}>
           <input type="text" value={item} placeholder='enter your task' onChange={(e)=>setItem(e.target.value)} />
           <button onClick={myTaskAdd}>Add</button> <br /><br />
           </form>
-          <table border={1} className='task-table'>
-            <tr>
+          {list.length>0?<table border={1} className='task-table'>
+          <tr>
                 <th>S.No</th>
                 <th>Task</th>
                 <th>Remove</th>
@@ -79,7 +80,8 @@ const TodoApp = () => {
               </>   
             )
         })}
-        </table>
+        </table>:""}
+        </div>
     </div>
   )
 }
