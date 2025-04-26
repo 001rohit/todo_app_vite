@@ -9,9 +9,14 @@ const TodoApp = () => {
     // const month = ["Jan","Feb","March","April","May","Jun","July","Agust","Sept","Oct","Nov","Dev"]
     const myTaskAdd =()=>{
         if(item!=""){
+           if(!list.includes(item)){
             list.push(item)
             setList(list)
             setItem("")
+           }
+           else{
+            alert("This task already exist")
+           }
         }
         else{
             alert("Please enter your task")
@@ -44,19 +49,23 @@ const TodoApp = () => {
       console.log("apka program chall raha hai")
      
     },[])
-    
+    const saveToDoList =(e)=>{
+        e.preventDefault()
+    }
   return (
     <div className='container'>
         <h1>Todo App </h1>
+          <form  onSubmit={saveToDoList}>
           <input type="text" value={item} placeholder='enter your task' onChange={(e)=>setItem(e.target.value)} />
           <button onClick={myTaskAdd}>Add</button> <br /><br />
+          </form>
           <table border={1} className='task-table'>
             <tr>
                 <th>S.No</th>
                 <th>Task</th>
                 <th>Remove</th>
                 <th>Edit</th>
-                <th>Time Status</th>
+                {/* <th>Time Status</th> */}
             </tr>
            {list.map((elem,index)=>{
                return(
